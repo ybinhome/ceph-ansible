@@ -262,8 +262,7 @@
 
 - name: set_fact osd_pool_default_crush_rule
   set_fact:
-    osd_pool_default_crush_rule: "{% if crush_rule_variable.rc == 0 %}{{ crush_rule_variable.stdout.split(' = ')[1] }}{% else %}{{ ceph_osd_pool_default_crush_rule }}{% endif %}"
-  when: ceph_conf.stat.exists
+    osd_pool_default_crush_rule: "{% if crush_rule_variable.get('rc', 1) | int == 0 %}{{ crush_rule_variable.stdout.split(' = ')[1] }}{% else %}{{ ceph_osd_pool_default_crush_rule }}{% endif %}"
 
 - name: import_tasks set_monitor_address.yml
   import_tasks: set_monitor_address.yml
