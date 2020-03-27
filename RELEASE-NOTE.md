@@ -41,6 +41,7 @@ Removed features
 ----------------
 
 * Remove openSUSE Leap 42 support.
+* Remove Debian support.
 * Remove ceph-common-coreos and ceph-agent roles.
 * Remove KV store support.
 * Remove infrastructure-playbooks/rgw-standalone.yml
